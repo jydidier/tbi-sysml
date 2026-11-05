@@ -214,8 +214,6 @@ Dans l'architecture physique, nous avons pour l'instant recensé les composants 
 *SuiveurStylet*, *SuiveurDoigt*, *ControleurUSB*, *PortUSB*.
 
 Certains composants semblent relever de ce que l'on pourrait trouver sur une carte mère donc nous pourrons rajouter quelques éléments intermédiaires.
-Cela peut ressembler à l'architecture que nous avons ci-dessous :
-![](../diagrammes/tbi.svg)
 
 Au niveau du langage textuel SysML, cela se traduit par l'extrait suivant :
 ```sysml 
@@ -237,3 +235,29 @@ part tbi : TableauBlancInteractif {
 ```
 
 ## Architecture logique
+Dans ce système, il y a en réalité deux architectures logiques : l'une pour le logiciel résident (logiciel embarqué)
+du tableau blanc interactif, l'autre pour l'application sur le smartphone. 
+
+Le logiciel résident contient *Menu*, *DialogueReglage*, *Reglage* et *Item*.
+
+L'application sur smartphone contient *DialogueTableaux*, *TableauActif*, *Message*, *Evenement*.
+
+Ceci se traduit par l'extrait SysML suivant :
+```sysml 
+part logicielResident : LogicielResident {
+    part menu : Menu;
+    part dialogueReglage : DialogueReglage[1..*];
+    part reglage : Reglage[0..*];
+    part items : Item[0..*];
+}
+
+part appSmartphone : AppTBI {
+    part dialogueTableaux: DialogueTableaux;
+    part tableauActif : TableauActif;
+    part messages : Message[0..*];
+    part evenement : Evenement[0..*];
+}
+```
+
+L'ensemble des architectures peut-être représenté comme suit :
+![](../diagrammes/architectures.svg)
