@@ -1,0 +1,19 @@
+﻿Id,Requirement,Doc,Subject,Constraint,Satisfy,Verify,Status
+,administrationTableau,l'enseignant doit pouvoir administrer le tableau blanc interactif,,,,,no link
+,affichageEcran,le tableau doit pouvoir afficher l'écran d'un ordinateur,,,,,no link
+,compatibiliteElectrique,le système est compatible avec le réseau électrique du pays de l'utilisateur,,,,,no link
+,complementVideoProjecteur,le tableau blanc vient en complément d'un video projecteur,,,,,no link
+,connexionSansFil,le dispositif doit être pourvu d'une connexion sans fil,,,,,no link
+,contraintes,le système doit respecter les contraintes ci-dessous,,,,,no link
+,controleSmartPhone,le tableau doit pouvoir être contrôlé à partir d'un smartphone,,,,,no link
+,coutRevient,le prix de revient doit être inférieur à 500€,,,,,no link
+,dispositifControle,"le tableau doit pouvoir être contrôlé à l'aide d'un dispositif de pointage (souris, doigt ou stylet)",,,,,no link
+,duplicationAffichage,l'enseignant doit pouvoir dupliquer l'affichage sur son smartphone,,,,,no link
+,ecritureADistance,un utilisateur doit pouvoir écrire à distance,,,,,no link
+,fonctions,le système doit comprendre les fonctions listées ci-dessous,,,,,no link
+,interactionsMaterielles,le système doit pouvoir disposer des interactions matérielles listées,,,,,no link
+,poidsTotal,le poids total du produit doit être inférieur à 1kg,,,,,no link
+,pointAccesUnique,le dispositif doit fournir un point d'accès unique et sécurisé à l'interface d'administration du tableau,,,,,no link
+,sauvegardeInformation,l'utilisateur doit pouvoir sauvegarder le contenu du tableau blanc,,,,,no link
+,specificationsTBI,le système répond aux catégories d'exigences listées ci-dessous,,,,,no link
+,transformationSurface,le produit doit pouvoir transformer une surface plane en surface de projection,,,,,no link
