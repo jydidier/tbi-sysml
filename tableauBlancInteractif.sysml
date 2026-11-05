@@ -37,5 +37,9 @@ package tbi {
         part def ControleurUSB;
         part def PortUSB;
         
+        /* composants ajoutés lors de la construction de l'architecture matérielle */
+        part def CarteMere;
+        part def MicroControleur;
+
     }
 }

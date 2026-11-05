@@ -201,3 +201,39 @@ part def SuiveurDoigt;
 part def ControleurUSB;
 part def PortUSB;
 ```
+
+# Vue arborescente du système 
+
+A ce stade, la correction ne pourra être que partielle car nous n'avons exploré ni l'ensemble des cas d'utilisation, ni la totalité des scénarios associés.
+
+## Architecture physique
+
+Dans l'architecture physique, nous avons pour l'instant recensé les composants suivants :
+*TableauBlancInteractif*, *Stylet*, *BoutonMateriel*, *ControleurVideo*,
+*EntreeVideo*, *SortieVideo*, *UniteAlimentationElectrique*, *UniteCommunicationSansFil*,
+*SuiveurStylet*, *SuiveurDoigt*, *ControleurUSB*, *PortUSB*.
+
+Certains composants semblent relever de ce que l'on pourrait trouver sur une carte mère donc nous pourrons rajouter quelques éléments intermédiaires.
+Cela peut ressembler à l'architecture que nous avons ci-dessous :
+![](../diagrammes/tbi.svg)
+
+Au niveau du langage textuel SysML, cela se traduit par l'extrait suivant :
+```sysml 
+part tbi : TableauBlancInteractif {
+    part boutonMenu : BoutonMateriel;
+    part carteMere : CarteMere {
+        part microControleur : MicroControleur;
+        part controleurVideo : ControleurVideo;
+        part entreeVideo: EntreeVideo;
+        part sortieVideo: SortieVideo;
+        part uniteCommunicationSansFil : UniteCommunicationSansFil;
+        part controleurUSB : ControleurUSB ;
+        part portUSB : PortUSB;
+    }
+    part suiveurStylet : SuiveurStylet;
+    part suiveurDoigt : SuiveurDoigt;
+    part uniteAlimentationElectrique : UniteAlimentationElectrique;
+}
+```
+
+## Architecture logique
