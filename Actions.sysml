@@ -1,4 +1,5 @@
 package tbi {
+    private import ScalarValues::Boolean;
     action administrerTableau {
         attribute boutonAppuye : Boolean;
         attribute annulation: Boolean;
