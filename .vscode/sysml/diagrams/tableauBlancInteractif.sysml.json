@@ -1,5 +1,5 @@
 {
   "version": 9,
   "structuredDefaults": "inherited",
-  "anchors": {"tbi::parts":{"gv":{"gvMode":"tree"}}}
+  "anchors": {"tbi::parts":{"gv":{"gvMode":"tree"}},"tbi":{"grv":{"gridPreset":"matrix","matrixRelationship":"allocation"},"gv":{"gvViews":{"group":{"expandedElements":["tbi::parts"]}}}}}
 }

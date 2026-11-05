@@ -260,4 +260,83 @@ part appSmartphone : AppTBI {
 ```
 
 L'ensemble des architectures peut-être représenté comme suit :
+
 ![](../diagrammes/architectures.svg)
+
+
+# Interconnexions 
+
+L'architecture physique sur laquelle des interconnexions peuvent être mises en évidence.
+Cela peut impliquer de transformer des composants (*parts*) en *ports* si leur nature s'y prête davantage.
+
+
+Une première esquisse des interconnexions peut être représentée comme suit :
+
+![](../diagrammes/interconnexion.svg)
+
+Le code en SysML est alors le suivant : 
+```sysml
+part tab : TableauBlancInteractif {
+    in port boutonMenu : BoutonMateriel;
+    
+    part carteMere : CarteMere {
+        part microControleur : MicroControleur;
+        part controleurVideo : ControleurVideo;
+        in port entreeVideo: EntreeVideo;
+        out port sortieVideo: SortieVideo;
+        part uniteCommunicationSansFil : UniteCommunicationSansFil;
+        part controleurUSB : ControleurUSB ;
+        inout port portUSB : PortUSB;
+        in port alimentation ;
+
+        connect entreeVideo to controleurVideo;
+        connect sortieVideo to controleurVideo;
+        connect microControleur to controleurVideo;
+        connect microControleur to uniteCommunicationSansFil;
+        connect microControleur to controleurUSB;
+        connect controleurUSB to portUSB;
+    }
+
+    part suiveurStylet : SuiveurStylet;
+    part suiveurDoigt : SuiveurDoigt;
+    part uniteAlimentationElectrique : UniteAlimentationElectrique {
+        out port basseTension;
+        in port hauteTension;
+    }
+
+    inout port portUSB : PortUSB;
+    in port hauteTension;
+    in port entreeVideo;
+    out port sortieVideo;
+
+    connect boutonMenu to carteMere;
+    connect carteMere.portUSB to portUSB;
+    connect suiveurStylet to carteMere;
+    connect suiveurDoigt to carteMere;
+    connect hauteTension to uniteAlimentationElectrique.hauteTension;
+    connect entreeVideo to carteMere.entreeVideo;
+    connect sortieVideo to carteMere.sortieVideo;
+    connect uniteAlimentationElectrique.basseTension to carteMere.alimentation;
+}
+```
+
+# Allocations
+
+Pour terminer, les allocations permettent de détepart smartPhone:SmartPhone;
+
+allocate appSmartphone to smartPhone;
+allocate logicielResident to tab;
+rminer quelle partie physique va avec quelle partie logique.
+
+Pour cela, nous pouvons compléter la description avec le mot-clé *allocate* comme ci-dessous. 
+Nous avons, au passage, ajouté une instance de smartphone pour réaliser l'allocation.
+
+```sysml
+part smartPhone:SmartPhone;
+allocate appSmartphone to smartPhone;
+allocate logicielResident to tab;
+```
+
+La matrice résultante est la suivante :
+
+![](../diagrammes/allocation.png)
