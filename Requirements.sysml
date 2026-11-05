@@ -1,6 +1,8 @@
-private import requirements::dispositifControle;
-private import requirements::coutRevient;
-private import requirements::controleSmartPhone;
+private import requirements::pointAccesUnique;
+private import requirements::interactionsMaterielles;
+private import requirements::specificationsTBI;
+private import requirements::poidsTotal;
+
 
 package tbi {    
     private import tbi::parts::*;
@@ -106,13 +108,25 @@ package tbi {
                 verify administrationTableau;
             }
 
-            verification contraintesVerifiees {
-                verify contraintes;
+            verification fonctionsVerifiees {
+                verify fonctions;
             }
         }
 
+        package controle {
+            verification contraintesControlees {
+                verify contraintes;
+            }
 
-        // pour la gloire !
+            verification controlePoidsTotal {
+                verify poidsTotal;
+            }
+            verification controleCoutRevient {
+                verify coutRevient;
+            }            
+        }
+        
+
         part controleurVideo : ControleurVideo {
             satisfy affichageEcran;
             satisfy complementVideoProjecteur;
@@ -142,9 +156,6 @@ package tbi {
             satisfy controleSmartPhone;
         }
 
-        verification controleCoutRevient {
-            verify coutRevient;
-        }
 
         part stylet: Stylet {
             satisfy dispositifControle;        
@@ -164,6 +175,15 @@ package tbi {
 
         part portUSB : PortUSB {
             satisfy dispositifControle;
+        }
+
+        part tbi : TableauBlancInteractif {
+            satisfy specificationsTBI;
+            satisfy interactionsMaterielles;
+        }
+
+        part boutonMenu : BoutonMateriel {
+            satisfy pointAccesUnique;
         }
 
     }
