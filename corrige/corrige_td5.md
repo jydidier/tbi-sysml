@@ -66,7 +66,7 @@ Dans la table des exigences (vue en grille) telle que la génère Aliot SysML v2
 * **status** est automatiquement mis à jour dès lors que l'exigence est tracée. Cela se traduit alors par le statut **OPEN**.
 
 Voici un aperçu du résultat que l'on peut obtenir dès lors que l'on s'intéresse à la traçabilité des exigences :
-![](diagrammes/exigences.png)
+![](../diagrammes/exigences.png)
 
 Pour chaque exigence, il faut se demander si elle est plutôt associée à une procédure de vérification où si elle
 peut être résolue en ajoutant un composant au système. De manière générale, les exigences associées au cas 
