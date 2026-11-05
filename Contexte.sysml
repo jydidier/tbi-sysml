@@ -1,5 +1,5 @@
 package tbi {
-    private import tbi::tbi::parts::*;
+    private import tbi::parts::*;
     part def Contexte {
         part enseignant:Enseignant;
         part etudiant: Etudiant[*];

@@ -1,5 +1,5 @@
 package tbi {
-    private import ScalarValues::Boolean;
+
     package parts {
         /* acteurs */
         part def Utilisateur;
@@ -24,5 +24,18 @@ package tbi {
         part def TableauActif;
         part def Message;
         part def Evenement;
+
+        /* composants ajoutés lors de l'examen des exigences */
+        part def ControleurVideo;
+        part def EntreeVideo;
+        part def SortieVideo;
+        part def UniteAlimentationElectrique;
+        part def UniteCommunicationSansFil;
+        part def LogicielResident;
+        part def SuiveurStylet;
+        part def SuiveurDoigt;
+        part def ControleurUSB;
+        part def PortUSB;
+        
     }
 }

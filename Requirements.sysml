@@ -1,5 +1,12 @@
+private import requirements::dispositifControle;
+private import requirements::coutRevient;
+private import requirements::controleSmartPhone;
+
 package tbi {    
+    private import tbi::parts::*;
+    private import tbi::useCases::*;
     package requirements {
+
 
         /* exigences extraites des cas d'utilisation */
         requirement sauvegardeInformation specializes fonctions {
@@ -78,7 +85,86 @@ package tbi {
             doc /* le système répond aux catégories d'exigences listées ci-dessous */
         }
 
-    
+        package recette {
+            verification informationSauvegardee {
+                verify sauvegardeInformation;
+            }
+
+            verification ecritureADistanceOperee {
+                verify ecritureADistance;
+            }
+
+            verification affichageDuplique {
+                verify duplicationAffichage;
+            }
+
+            verification surfaceTransformee {
+                verify transformationSurface;
+            }
+
+            verification tableauAdministre {
+                verify administrationTableau;
+            }
+
+            verification contraintesVerifiees {
+                verify contraintes;
+            }
+        }
+
+
+        // pour la gloire !
+        part controleurVideo : ControleurVideo {
+            satisfy affichageEcran;
+            satisfy complementVideoProjecteur;
+        }
+
+        part entreeVideo : EntreeVideo {
+            satisfy affichageEcran;
+        }
+
+        part uniteAlimentationElectrique : UniteAlimentationElectrique {
+            satisfy compatibiliteElectrique;
+        }
+
+        part sortieVideo : SortieVideo {
+            satisfy complementVideoProjecteur;
+        }
+
+        part uniteCommunicationSansFil : UniteCommunicationSansFil {
+            satisfy connexionSansFil;
+        }
+
+        part logicielResident : LogicielResident {
+            satisfy controleSmartPhone;
+        }
+  
+        part appSmartphone : AppTBI {
+            satisfy controleSmartPhone;
+        }
+
+        verification controleCoutRevient {
+            verify coutRevient;
+        }
+
+        part stylet: Stylet {
+            satisfy dispositifControle;        
+        }
+
+        part suiveurStylet : SuiveurStylet {
+            satisfy dispositifControle;
+        }
+
+        part suiveurDoigt : SuiveurDoigt {
+            satisfy dispositifControle;
+        }
+
+        part controleurUSB : ControleurUSB {
+            satisfy dispositifControle;
+        }
+
+        part portUSB : PortUSB {
+            satisfy dispositifControle;
+        }
 
     }
 }
